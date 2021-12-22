@@ -49,7 +49,7 @@ $(".list-group").on("click", "p", function () {
 
 $(".list-group").on("blur", "textarea", function () {
   // get the textarea's current value/text
-  var text = $(this).val().trim();
+  var text = $(this).val();
 
   // get the parent ui's id attribute
   var status = $(this).closest(".list-group").attr("id").replace("list-", "");
@@ -82,22 +82,22 @@ $(".list-group").on("click", "span", function () {
 });
 
 // value of due date was changed
-$('.list-group').on('blur', "input[type= 'text']", functions(){
+$(".list-group").on("blur", "input[type= 'text']", function () {
   // get current text
-  var date = $(this).val().trim();
+  var date = $(this).val();
 
   // get the parent ul's id attribute
-  var status = $(this).closest('.list-group').attr('id').replace('list-','');
+  var status = $(this).closest(".list-group").attr("id").replace("list-", "");
 
   // get the task's position in the list of other li elements
-  var index = $(this).closest('.list-group-item').index();
+  var index = $(this).closest(".list-group-item").index();
 
   // update task in array and re-save to localstorage
   tasks[status][index].date = date;
   saveTasks();
 
   // recreate span element with bootstrap classes
-  var taskSpan = $("<span>").addClass('badge badge-primary badge-pill').text(date);
+  var taskSpan = $("<span>").addClass("badge badge-primary badge-pill").text(date);
 
   // replace input with span elements
   $(this).replaceWith(taskSpan);
