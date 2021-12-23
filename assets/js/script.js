@@ -84,7 +84,7 @@ $(".list-group").on("click", "span", function () {
 // value of due date was changed
 $(".list-group").on("blur", "input[type= 'text']", function () {
   // get current text
-  var date = $(this).val();
+  var date = $(this).val().trim();
 
   // get the parent ul's id attribute
   var status = $(this).closest(".list-group").attr("id").replace("list-", "");
